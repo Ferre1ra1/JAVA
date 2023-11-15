@@ -14,7 +14,7 @@ API:
 * pacote java.net.http
 [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html)
 
-
+~~~html
 <h3> Sync </h3>
 <div>
  HttpClient client = HttpClient.newBuilder()
@@ -35,7 +35,7 @@ API:
         .thenApply(HttpResponse::body)
         .thenAccept(System.out::println); 
 </div>
-
+~~~
 ### HttpRequest
 
 > HTTP defines a set of request methods to indicate the desired action to be performed for a given resource.
@@ -43,6 +43,7 @@ API:
 * pacote java.net.http
 [HttpRequest](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpRequest.html)
 
+~~~html
 <h3> GET Request </h3>
 <div>
  HttpClient client = HttpClient.newHttpClient();
@@ -54,7 +55,7 @@ API:
          .thenAccept(System.out::println)
          .join(); 
 </div>
-
+~~~~
 ### HttpResponse
 
 > This class provides methods for accessing the response status code, headers, the response body and the response correspondent.
@@ -62,9 +63,9 @@ API:
 * pacote java.net.http
 [HttpResponse](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpResponse.html)
 
+~~~html
 <div>  HttpResponse<String> response = HttpClient
                     .newHttpClient()
                     .send(request, HttpResponse.BodyHandlers.ofString()); </div>
-
-
+~~~
 
