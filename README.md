@@ -5,17 +5,17 @@
 API:
 [OMDB](https://www.omdbapi.com/)
 
-# Classes usadas para consumir a API 
+## Classes used to consume the API 
 
 ### HttpClient
 
-> Fornece informações de configuração e recurso compartilhamento, para todas as solicitações enviadas através dele.
+>It provides configuration and sharing information for all requests sent through it.
 
 * pacote java.net.http
 [HttpClient](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html)
 
-~~~html
-<h3> Síncrono </h3>
+
+<h3> Sync </h3>
 <div>
  HttpClient client = HttpClient.newBuilder()
         .proxy(ProxySelector.of(new InetSocketAddress("proxy.example.com", 80)))
@@ -25,7 +25,7 @@ API:
    System.out.println(response.body()); 
 </div>
 <br>
-<h3> Assíncrono </h3>
+<h3> Async </h3>
 <div>
    HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://foo.com/"))
@@ -35,5 +35,36 @@ API:
         .thenApply(HttpResponse::body)
         .thenAccept(System.out::println); 
 </div>
-~~~
+
+### HttpRequest
+
+> HTTP defines a set of request methods to indicate the desired action to be performed for a given resource.
+
+* pacote java.net.http
+[HttpRequest](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpRequest.html)
+
+<h3> GET Request </h3>
+<div>
+ HttpClient client = HttpClient.newHttpClient();
+   HttpRequest request = HttpRequest.newBuilder()
+         .uri(URI.create("http://foo.com/"))
+         .build();
+   client.sendAsync(request, BodyHandlers.ofString())
+         .thenApply(HttpResponse::body)
+         .thenAccept(System.out::println)
+         .join(); 
+</div>
+
+### HttpResponse
+
+> This class provides methods for accessing the response status code, headers, the response body and the response correspondent.
+
+* pacote java.net.http
+[HttpResponse](https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpResponse.html)
+
+<div>  HttpResponse<String> response = HttpClient
+                    .newHttpClient()
+                    .send(request, HttpResponse.BodyHandlers.ofString()); </div>
+
+
 
