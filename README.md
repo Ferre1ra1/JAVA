@@ -2,6 +2,11 @@
 
 > In this Branch I will be consuming the OMDB API for study purposes.
 
+### Consuming Movie API in Java
+* O projeto em Java consumes a movie website's API, manages the retrieved data, and prints it to a txt file.
+* It showcases data retrieval, manipulation, and file handling.
+* The code is available for customization and serves as a learning resource for Java programming.
+
 API:
 [OMDB](https://www.omdbapi.com/)
 
